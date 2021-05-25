@@ -9,19 +9,19 @@ export class App extends Component {
   // }
 
   state = {
+    id: 1,
     board: [
-      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-      ['1', '2', '3', '4', '5', '6', '7', '8'],
-      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-      ['1', '2', '3', '4', '5', '6', '7', '8'],
-      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-      ['1', '2', '3', '4', '5', '6', '7', '8'],
-      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-      ['1', '2', '3', '4', '5', '6', '7', '8'],
+      [' 1', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' 2', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' 3', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' 4', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' 5', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' 6', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' 7', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' 8'],
     ],
-    id: null,
     mines: 10,
-    // state: new,
+    state: 'new',
   }
 
   handleClickCell = (row, column) => {
@@ -31,26 +31,43 @@ export class App extends Component {
     return (
       <div>
         <h1 className="the top of the page">
-          <header>Minesweeper</header>
+          <header>Mineduster</header>
         </h1>
         <h1>
           <button>New Game</button>
         </h1>
-        <ul>
+        <div className="whole board">
           {this.state.board.map((boardRow, rowIndex) => {
             return boardRow.map((cell, columnIndex) => {
               return (
-                <li
+                <div
+                  className="individual cell"
                   key={columnIndex}
                   onClick={() => this.handleClickCell(rowIndex, columnIndex)}
                 >
                   {cell}
-                </li>
+                </div>
               )
             })
           })}
-        </ul>
+        </div>
       </div>
     )
   }
+}
+
+{
+  /* <div>
+  {this.state.board.map((row, rowId) => (
+    return(
+      <div className='row'>
+        {row.map((cell, columnIndex) => (
+          return(
+            <div className='cell'></div>
+          )
+        )))}
+      </div>
+    )
+  ))}
+</div> */
 }

@@ -15,6 +15,25 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+.whole {
+  // display: flex;
+  // display: wrap;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  background-color: blue;
+  margin: 20px;
+  border: 2px solid blue;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cornsilk;
+  padding: 8px;
+}
 ul,
 li {
   /* Be gone margins! */
@@ -36,7 +55,7 @@ ul {
   /* Set the background color that will show through the gap */
   // background-color: var(--square-text-color);
   background-color: black;
-  margin: 10px;
+  margin: 20px;
 }
 
 ul li {
@@ -55,4 +74,5 @@ ul li {
   align-items: center;
   justify-content: center;
   transition: 1s font-size ease-in-out;
+  padding: 10px 4px;
 }
