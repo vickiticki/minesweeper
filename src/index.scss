@@ -15,3 +15,44 @@ h1 {
   display: flex;
   justify-content: center;
 }
+ul,
+li {
+  /* Be gone margins! */
+  margin: 0;
+  padding: 0;
+
+  /* and list styles */
+  list-style: none;
+}
+
+ul {
+  /* Display the list as a 3 column and three row grid */
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  /* Add a little gap between to allow the background color through */
+  gap: 2px;
+
+  /* Set the background color that will show through the gap */
+  // background-color: var(--square-text-color);
+  background-color: black;
+  margin: 10px;
+}
+
+ul li {
+  /* Use a monospace font */
+  font-family: monospace;
+  font-size: 16px;
+
+  /* Style the background color of the item */
+  background-color: chocolate;
+
+  /* Make the cursor a pointer by default */
+  cursor: pointer;
+
+  /* Center the text in the LI */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s font-size ease-in-out;
+}

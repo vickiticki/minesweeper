@@ -7,14 +7,21 @@ export class App extends Component {
   //   state: new,
   //   mines: 10,
   // }
+
   state = {
     board: [
-      Array(8)
-        .fill(0)
-        .map(row => new Array(8).fill(' ')),
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      ['1', '2', '3', '4', '5', '6', '7', '8'],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      ['1', '2', '3', '4', '5', '6', '7', '8'],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      ['1', '2', '3', '4', '5', '6', '7', '8'],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      ['1', '2', '3', '4', '5', '6', '7', '8'],
     ],
     id: null,
     mines: 10,
+    // state: new,
   }
 
   handleClickCell = (row, column) => {
@@ -37,7 +44,6 @@ export class App extends Component {
                   key={columnIndex}
                   onClick={() => this.handleClickCell(rowIndex, columnIndex)}
                 >
-                  {' '}
                   {cell}
                 </li>
               )
