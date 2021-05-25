@@ -27,9 +27,15 @@ export class App extends Component {
   handleClickCell = (row, column) => {
     console.log(`You clicked row ${row} column ${column}}`)
   }
+
+  // figure out how to make menu not show up because that's annoying
+  handleRightClick = (row, column) => {
+    console.log(`right click at ${row}, ${column}`)
+  }
+
   render() {
     return (
-      <div>
+      <div className="everything">
         <h1 className="the top of the page">
           <header>Mineduster</header>
         </h1>
@@ -44,6 +50,9 @@ export class App extends Component {
                   className="individual cell"
                   key={columnIndex}
                   onClick={() => this.handleClickCell(rowIndex, columnIndex)}
+                  onContextMenu={() =>
+                    this.handleRightClick(rowIndex, columnIndex)
+                  }
                 >
                   {cell}
                 </div>
