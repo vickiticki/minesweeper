@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export class App extends Component {
   state = {
     id: 1,
-    // these numbers were there for visual purposes while working on css
     // board: [
     //   [' 1', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
     //   [' ', ' 2', ' ', ' ', ' ', ' ', ' ', ' '],
@@ -21,9 +20,14 @@ export class App extends Component {
     state: 'new',
   }
 
-  handleClickCell = (row, column) => {
+  handleNewGame = async () => {
+    // new game
+    console.log('clicked new game')
+  }
+
+  handleClickCell = async (row, column) => {
     console.log(`You clicked row ${row} column ${column}}`)
-    // const body = (row: row, col: column)
+    // const body = "row: row, col: column"
     // const response = await fetch(
     //   api url
     // method: "POST"
@@ -33,11 +37,11 @@ export class App extends Component {
     // if (response.status === 200) {
     //   const game = await response.json()
     //   this.setState(game)
-    }
+    // }
   }
 
   // figure out how to make menu not show up because that's annoying
-  handleRightClick = (row, column) => {
+  handleRightClick = async (row, column) => {
     console.log(`right click at ${row}, ${column}`)
   }
 
@@ -48,7 +52,7 @@ export class App extends Component {
           <header>Mineduster</header>
         </h1>
         <h1>
-          <button>New Game</button>
+          <button onClick={() => this.handleNewGame}>New Game</button>
         </h1>
         {/* can move this whole thing to a component:  */}
         {/* change "this.state.kyle" to "this.props.kyle" in component space */}
