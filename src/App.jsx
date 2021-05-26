@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 
 export class App extends Component {
-  // state: {
-  //  board: Array(8).fill(0).map(row => new Array(8).fill(' '))
-  //   id: null,
-  //   state: new,
-  //   mines: 10,
-  // }
-
   state = {
     id: 1,
+    // these numbers were there for visual purposes while working on css
     // board: [
     //   [' 1', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
     //   [' ', ' 2', ' ', ' ', ' ', ' ', ' ', ' '],
@@ -29,6 +23,17 @@ export class App extends Component {
 
   handleClickCell = (row, column) => {
     console.log(`You clicked row ${row} column ${column}}`)
+    // const body = (row: row, col: column)
+    // const response = await fetch(
+    //   api url
+    // method: "POST"
+    // headers: { 'content-type': 'application.json'},
+    // body: JSON.stringify(body)
+    // )
+    // if (response.status === 200) {
+    //   const game = await response.json()
+    //   this.setState(game)
+    }
   }
 
   // figure out how to make menu not show up because that's annoying
@@ -45,6 +50,8 @@ export class App extends Component {
         <h1>
           <button>New Game</button>
         </h1>
+        {/* can move this whole thing to a component:  */}
+        {/* change "this.state.kyle" to "this.props.kyle" in component space */}
         <div className="whole board">
           {this.state.board.map((boardRow, rowIndex) => {
             return boardRow.map((cell, columnIndex) => {
@@ -66,20 +73,4 @@ export class App extends Component {
       </div>
     )
   }
-}
-
-{
-  /* <div>
-  {this.state.board.map((row, rowId) => (
-    return(
-      <div className='row'>
-        {row.map((cell, columnIndex) => (
-          return(
-            <div className='cell'></div>
-          )
-        )))}
-      </div>
-    )
-  ))}
-</div> */
 }
