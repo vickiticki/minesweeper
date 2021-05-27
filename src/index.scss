@@ -20,13 +20,18 @@ h1 {
 
 .whole {
   // display: flex;
+  // justify-content: center;
   // display: wrap;
-  display: grid;
-  grid-template: repeat(8, 1fr) / repeat(8, 1fr);
-  gap: 2px;
-  background-color: blue;
-  margin: 20px;
-  border: 2px solid blue;
+  // display: grid;
+  // grid-template: repeat(8, 1fr) / repeat(8, 1fr);
+  // gap: 2px;
+  // background-color: blue;
+  // margin: auto;
+  // border: 2px solid blue;
+}
+.whole .row {
+  display: flex;
+  justify-content: center;
 }
 
 .cell {
@@ -36,46 +41,48 @@ h1 {
   background-color: cornsilk;
   padding: 8px;
   height: 20px;
+  width: 20px;
+  border: solid 3px red;
 }
-ul,
-li {
-  /* Be gone margins! */
-  margin: 0;
-  padding: 0;
+// ul,
+// li {
+//   /* Be gone margins! */
+//   margin: 0;
+//   padding: 0;
 
-  /* and list styles */
-  list-style: none;
-}
+//   /* and list styles */
+//   list-style: none;
+// }
 
-ul {
-  /* Display the list as a 3 column and three row grid */
-  display: grid;
-  grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+// ul {
+//   /* Display the list as a 3 column and three row grid */
+//   display: grid;
+//   grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-  /* Add a little gap between to allow the background color through */
-  gap: 2px;
+//   /* Add a little gap between to allow the background color through */
+//   gap: 2px;
 
-  /* Set the background color that will show through the gap */
-  // background-color: var(--square-text-color);
-  background-color: black;
-  margin: 20px;
-}
+//   /* Set the background color that will show through the gap */
+//   // background-color: var(--square-text-color);
+//   background-color: black;
+//   margin: 20px;
+// }
 
-ul li {
-  /* Use a monospace font */
-  font-family: monospace;
-  font-size: 16px;
+// ul li {
+//   /* Use a monospace font */
+//   font-family: monospace;
+//   font-size: 16px;
 
-  /* Style the background color of the item */
-  background-color: chocolate;
+//   /* Style the background color of the item */
+//   background-color: chocolate;
 
-  /* Make the cursor a pointer by default */
-  cursor: pointer;
+//   /* Make the cursor a pointer by default */
+//   cursor: pointer;
 
-  /* Center the text in the LI */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 1s font-size ease-in-out;
-  padding: 10px 4px;
-}
+//   /* Center the text in the LI */
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   transition: 1s font-size ease-in-out;
+//   padding: 10px 4px;
+// }

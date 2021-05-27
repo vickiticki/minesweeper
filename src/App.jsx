@@ -3,19 +3,19 @@ import React, { Component } from 'react'
 export class App extends Component {
   state = {
     id: 1,
-    // board: [
-    //   [' 1', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-    //   [' ', ' 2', ' ', ' ', ' ', ' ', ' ', ' '],
-    //   [' ', ' ', ' 3', ' ', ' ', ' ', ' ', ' '],
-    //   [' ', ' ', ' ', ' 4', ' ', ' ', ' ', ' '],
-    //   [' ', ' ', ' ', ' ', ' 5', ' ', ' ', ' '],
-    //   [' ', ' ', ' ', ' ', ' ', ' 6', ' ', ' '],
-    //   [' ', ' ', ' ', ' ', ' ', ' ', ' 7', ' '],
-    //   [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' 8'],
-    // ]
-    board: Array(8)
-      .fill(0)
-      .map(row => new Array(8).fill(' ')),
+    board: [
+      [' 1', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' 2', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' 3', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' 4', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' 5', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' 6', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' 7', ' '],
+      [' ', '9', ' ', ' ', ' ', ' ', ' ', ' 8'],
+    ],
+    // board: Array(8)
+    //   .fill(0)
+    //   .map(row => new Array(8).fill(' ')),
     mines: 10,
     state: 'new',
   }
@@ -61,20 +61,26 @@ export class App extends Component {
         {/* change "this.state.kyle" to "this.props.kyle" in component space */}
         <div className="whole board">
           {this.state.board.map((boardRow, rowIndex) => {
-            return boardRow.map((cell, columnIndex) => {
-              return (
-                <div
-                  className="individual cell"
-                  key={columnIndex}
-                  onClick={() => this.handleClickCell(rowIndex, columnIndex)}
-                  onContextMenu={() =>
-                    this.handleRightClick(rowIndex, columnIndex)
-                  }
-                >
-                  {cell}
-                </div>
-              )
-            })
+            return (
+              <div key={rowIndex} className="row">
+                {boardRow.map((cell, columnIndex) => {
+                  return (
+                    <div
+                      className="individual cell"
+                      key={columnIndex}
+                      onClick={() =>
+                        this.handleClickCell(rowIndex, columnIndex)
+                      }
+                      onContextMenu={() =>
+                        this.handleRightClick(rowIndex, columnIndex)
+                      }
+                    >
+                      {cell}
+                    </div>
+                  )
+                })}
+              </div>
+            )
           })}
         </div>
       </div>
