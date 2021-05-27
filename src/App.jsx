@@ -26,7 +26,7 @@ export class App extends Component {
   }
 
   handleClickCell = async (row, column) => {
-    console.log(`You clicked row ${row} column ${column}}`)
+    console.log(`You clicked row ${row} column ${column}`)
     // const body = "row: row, col: column"
     // const response = await fetch(
     //   api url
@@ -40,9 +40,12 @@ export class App extends Component {
     // }
   }
 
-  // figure out how to make menu not show up because that's annoying
   handleRightClick = async (row, column) => {
+    // get rid of popup menu
+    event.preventDefault()
+    // test
     console.log(`right click at ${row}, ${column}`)
+    //add flag
   }
 
   render() {
