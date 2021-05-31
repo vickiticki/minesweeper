@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Gameboard from './components/Gameboard'
 
 export class App extends Component {
   state = {
@@ -76,30 +77,11 @@ export class App extends Component {
         </h1>
         {/* can move this whole thing to a component:  */}
         {/* change "this.state.kyle" to "this.props.kyle" in component space */}
-        <div className="whole board">
-          {this.state.board.map((boardRow, rowIndex) => {
-            return (
-              <div key={rowIndex} className="row">
-                {boardRow.map((cell, columnIndex) => {
-                  return (
-                    <div
-                      className="individual cell"
-                      key={columnIndex}
-                      onClick={() =>
-                        this.handleClickCell(rowIndex, columnIndex)
-                      }
-                      onContextMenu={() =>
-                        this.handleRightClick(rowIndex, columnIndex)
-                      }
-                    >
-                      {cell}
-                    </div>
-                  )
-                })}
-              </div>
-            )
-          })}
-        </div>
+        <Gameboard
+          field={this.state.board}
+          leftClick={this.handleClickCell}
+          rightClick={this.handleRightClick}
+        />
       </div>
     )
   }
