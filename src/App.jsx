@@ -20,6 +20,7 @@ export class App extends Component {
       .map(row => new Array(8).fill(' ')),
     mines: 10,
     state: 'new',
+    // The state will be one of "new", "playing", "won", or "lost".
   }
 
   handleNewGame = async () => {
@@ -39,23 +40,22 @@ export class App extends Component {
     }
   }
 
-  componentDidMount() {
-    this.handleNewGame
-  }
-
   handleClickCell = async (row, column) => {
     console.log(`You clicked row ${row} column ${column}`)
-    // const body = "row: row, col: column"
-    // const response = await fetch(
-    //   api url
-    // method: "POST"
-    // headers: { 'content-type': 'application.json'},
-    // body: JSON.stringify(body)
-    // )
-    // if (response.status === 200) {
-    //   const game = await response.json()
-    //   this.setState(game)
-    // }
+    const body = { row: row, col: column }
+    const response = await fetch(
+      `https://minesweeper-api.herokuapp.com/games/${this.state.id}/check`,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application.json' },
+        body: JSON.stringify(body),
+      }
+    )
+
+    if (response.status === 200) {
+      const game = await response.json()
+      this.setState(game)
+    }
   }
 
   handleRightClick = async (row, column) => {
@@ -64,8 +64,20 @@ export class App extends Component {
     // test
     console.log(`right click at ${row}, ${column}`)
     //add flag
+    const body = { row: row, col: column }
+    const response = await fetch(
+      `https://minesweeper-api.herokuapp.com/games/${this.state.id}/flag`,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(body),
+      }
+    )
   }
 
+  componentDidMount() {
+    this.handleNewGame
+  }
   render() {
     return (
       <div className="everything">
