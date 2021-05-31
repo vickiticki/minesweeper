@@ -3,19 +3,20 @@ import React, { Component } from 'react'
 export class App extends Component {
   state = {
     id: 1,
-    board: [
-      [' 1', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-      [' ', ' 2', ' ', ' ', ' ', ' ', ' ', ' '],
-      [' ', ' ', ' 3', ' ', ' ', ' ', ' ', ' '],
-      [' ', ' ', ' ', ' 4', ' ', ' ', ' ', ' '],
-      [' ', ' ', ' ', ' ', ' 5', ' ', ' ', ' '],
-      [' ', ' ', ' ', ' ', ' ', ' 6', ' ', ' '],
-      [' ', ' ', ' ', ' ', ' ', ' ', ' 7', ' '],
-      [' ', '9', ' ', ' ', ' ', ' ', ' ', ' 8'],
-    ],
-    // board: Array(8)
-    //   .fill(0)
-    //   .map(row => new Array(8).fill(' ')),
+    // test board to check display
+    // board: [
+    //   [' 1', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    //   [' ', ' 2', ' ', ' ', ' ', ' ', ' ', ' '],
+    //   [' ', ' ', ' 3', ' ', ' ', ' ', ' ', ' '],
+    //   [' ', ' ', ' ', ' 4', ' ', ' ', ' ', ' '],
+    //   [' ', ' ', ' ', ' ', ' 5', ' ', ' ', ' '],
+    //   [' ', ' ', ' ', ' ', ' ', ' 6', ' ', ' '],
+    //   [' ', ' ', ' ', ' ', ' ', ' ', ' 7', ' '],
+    //   [' ', '9', ' ', ' ', ' ', ' ', ' ', ' 8'],
+    // ],
+    board: Array(8)
+      .fill(0)
+      .map(row => new Array(8).fill(' ')),
     mines: 10,
     state: 'new',
   }
@@ -23,6 +24,22 @@ export class App extends Component {
   handleNewGame = async () => {
     // new game
     console.log('clicked new game')
+    const response = await fetch(
+      'https://minesweeper-api.herokuapp.com/games',
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+      }
+    )
+    if (response.status === 200) {
+      const game = await response.json()
+      console.log(game)
+      this.setState(game)
+    }
+  }
+
+  componentDidMount() {
+    this.handleNewGame
   }
 
   handleClickCell = async (row, column) => {
@@ -55,7 +72,7 @@ export class App extends Component {
           <header>Mineduster</header>
         </h1>
         <h1>
-          <button onClick={() => this.handleNewGame}>New Game</button>
+          <button onClick={() => this.handleNewGame()}>New Game</button>
         </h1>
         {/* can move this whole thing to a component:  */}
         {/* change "this.state.kyle" to "this.props.kyle" in component space */}
