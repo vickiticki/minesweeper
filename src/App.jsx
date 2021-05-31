@@ -73,6 +73,10 @@ export class App extends Component {
         body: JSON.stringify(body),
       }
     )
+    if (response.status === 200) {
+      const game = await response.json()
+      this.setState(game)
+    }
   }
 
   componentDidMount() {
