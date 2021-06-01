@@ -23,6 +23,10 @@ export class App extends Component {
     // The state will be one of "new", "playing", "won", or "lost".
   }
 
+  testing = () => {
+    return this.state.state
+  }
+
   handleNewGame = async () => {
     // new game
     console.log('clicked new game')
@@ -55,6 +59,13 @@ export class App extends Component {
     if (response.status === 200) {
       const game = await response.json()
       this.setState(game)
+
+      if (this.state.state === 'won') {
+        //show won screen
+      }
+      if (this.state.state === 'lost') {
+        //show lost
+      }
     }
   }
 
@@ -80,14 +91,16 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    this.handleNewGame
+    this.handleNewGame()
   }
+
   render() {
     return (
       <div className="everything">
         <h1 className="the top of the page">
           <header>Mineduster</header>
         </h1>
+        <h2 className={this.state.state}>{this.state.state}</h2>
         <h1>
           <button onClick={() => this.handleNewGame()}>New Game</button>
         </h1>
