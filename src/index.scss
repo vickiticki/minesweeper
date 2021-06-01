@@ -38,13 +38,27 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: cornsilk;
+  // background-color: cornsilk;
   padding: 8px;
   height: 20px;
   width: 20px;
   border: solid 3px red;
 }
 
-.isF {
+.other {
+  background-color: cornsilk;
+}
+.isEmpty {
+  background-color: rgb(224, 209, 148);
+}
+.isFlag {
   background-color: blueviolet;
+}
+
+.isBomb {
+  background-color: crimson;
+}
+
+.isFlaggedBomb {
+  background-color: indianred;
 }
