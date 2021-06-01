@@ -23,6 +23,7 @@ h2 {
   display: flex;
   justify-content: center;
   font-size: 40px;
+  text-transform: uppercase;
 }
 .lost {
   color: crimson;
@@ -59,13 +60,55 @@ h2 {
   background-color: rgb(224, 209, 148);
 }
 .isFlag {
-  background-color: blueviolet;
+  visibility: hidden;
+  position: relative;
+}
+.isFlag:after {
+  visibility: visible;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  background-color: rgb(218, 191, 243);
+  content: '🏁';
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  padding: 8px;
+  border: solid 3px red;
 }
 
 .isBomb {
+  visibility: hidden;
+  position: relative;
+}
+.isBomb:after {
   background-color: crimson;
+  visibility: visible;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  content: '💣 ';
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  padding: 8px;
+  border: solid 3px red;
 }
 
 .isFlaggedBomb {
-  background-color: indianred;
+  visibility: hidden;
+  position: relative;
+}
+.isFlaggedBomb:after {
+  background-color: rgb(218, 191, 243);
+  visibility: visible;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  content: '💣 ';
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  padding: 8px;
+  border: solid 3px red;
 }
